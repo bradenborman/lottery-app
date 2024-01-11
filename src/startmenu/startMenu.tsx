@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { Item } from '../lottery/lottery';
 
 interface StartMenuProps {
-    onStart: (startNumber: number) => void;
+    onStart: (startNumber: Item[]) => void;
 }
 
 const StartMenu: React.FC<StartMenuProps> = ({ onStart }) => {
@@ -9,7 +10,11 @@ const StartMenu: React.FC<StartMenuProps> = ({ onStart }) => {
 
     const handleStartNewLottery = () => {
         if (startNumber) {
-            onStart(Number(startNumber));
+            const items: Item[] = Array.from({ length: Number(startNumber) }, (_, index) => ({
+                value: index + 1,
+                status: 'alive',
+            }));
+            onStart(items);
         }
     };
 

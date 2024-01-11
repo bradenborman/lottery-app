@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import StartMenu from './startMenu';
-import Lottery from './lottery';
+import StartMenu from './startmenu/startMenu';
+import Lottery, { Item } from './lottery/lottery';
 import './index.scss';
 import './tailwind.output.css';
 
 
 const App = () => {
 
-    const [lotteryStartNumber, setLotteryStartNumber] = useState<number>();
+    const [lotteryItems, setlotteryItems] = useState<Item[]>();
 
     const renderLottery = (): JSX.Element => {
-
-        return lotteryStartNumber !== undefined ? <Lottery startNumber={lotteryStartNumber} />
-            : <StartMenu onStart={setLotteryStartNumber} />;
+        return lotteryItems !== undefined ? <Lottery items={lotteryItems} />
+            : <StartMenu onStart={setlotteryItems} />;
     };
 
     return (
