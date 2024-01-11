@@ -1,14 +1,16 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, screen } from 'electron';
 import path from 'path';
 import url from 'url';
 
 let mainWindow: BrowserWindow | null;
 
 function createWindow() {
+    const { width, height } = screen.getPrimaryDisplay().workAreaSize;
+
     // Create the browser window.
     mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: width,
+        height: height,
         webPreferences: {
             nodeIntegration: true, // If you require node integration
             contextIsolation: false // Only disable if absolutely necessary
@@ -24,7 +26,7 @@ function createWindow() {
     mainWindow.loadURL(startUrl);
 
     // Open the DevTools.
-    mainWindow.webContents.openDevTools();
+    // mainWindow.webContents.openDevTools();
 
     // Emitted when the window is closed.
     mainWindow.on('closed', function () {
