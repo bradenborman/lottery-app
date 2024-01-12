@@ -1,22 +1,31 @@
 {
   "name": "lottery-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "A lottery application",
+  "author": "Braden Borman",
   "main": "dist/main.js",
   "scripts": {
     "build:css": "tailwindcss -i ./src/index.scss -o ./src/tailwind.output.css",
     "build": "npm run build:css && webpack --mode production",
-    "start": "npm run build && electron .",
-    "dev": "webpack serve --mode development --open"
+    "start": "electron-forge start",
+    "dev": "webpack serve --mode development --open",
+    "start-prod": "electron ./dist/main.js",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.23.7",
     "@babel/preset-env": "^7.23.8",
     "@babel/preset-react": "^7.23.3",
     "@babel/preset-typescript": "^7.23.3",
+    "@electron-forge/cli": "^7.2.0",
+    "@electron-forge/maker-deb": "^7.2.0",
+    "@electron-forge/maker-rpm": "^7.2.0",
+    "@electron-forge/maker-squirrel": "^7.2.0",
+    "@electron-forge/maker-zip": "^7.2.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.2.0",
     "@types/react": "^18.2.47",
     "@types/react-dom": "^18.2.18",
     "babel-loader": "^9.1.3",
@@ -33,6 +42,7 @@
   },
   "dependencies": {
     "autoprefixer": "^10.4.16",
+    "electron-squirrel-startup": "^1.0.0",
     "postcss": "^8.4.33",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
