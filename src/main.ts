@@ -1,6 +1,10 @@
-import { app, BrowserWindow, screen, Tray, Menu, MenuItemConstructorOptions, Notification } from 'electron';
+import { app, BrowserWindow, screen, Menu, MenuItemConstructorOptions } from 'electron';
 import path from 'path';
 import url from 'url';
+import handleSquirrelEvent from './squirrel-app-setup'
+
+// This line should be near the top of your main process code -- do not remove
+if (require('electron-squirrel-startup')) app.quit();
 
 let mainWindow: BrowserWindow | null;
 
@@ -9,7 +13,7 @@ function createWindow() {
     mainWindow = new BrowserWindow({
         width: width,
         height: height,
-        icon: path.join(__dirname, 'assets', 'logo.png'),
+        icon: path.join(__dirname, 'assets', 'logo.ico'),
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false
@@ -44,15 +48,21 @@ function createWindow() {
     });
 }
 
-if (require('electron-squirrel-startup'))
-    app.quit();
 
-app.on('ready', createWindow);
+function initApp() {
+    // if (handleSquirrelEvent(app)) {
+    //     return;
+    // }
 
-app.on('window-all-closed', function () {
-    if (process.platform !== 'darwin') app.quit();
-});
+    app.on('ready', createWindow);
 
-app.on('activate', function () {
-    if (mainWindow === null) createWindow();
-});
+    app.on('window-all-closed', function () {
+        if (process.platform !== 'darwin') app.quit();
+    });
+
+    app.on('activate', function () {
+        if (mainWindow === null) createWindow();
+    });
+}
+
+initApp();
