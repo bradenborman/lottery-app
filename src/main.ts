@@ -50,9 +50,9 @@ function createWindow() {
 
 
 function initApp() {
-    // if (handleSquirrelEvent(app)) {
-    //     return;
-    // }
+    if (handleSquirrelEvent(app)) {
+        return;
+    }
 
     app.on('ready', createWindow);
 

@@ -544,6 +544,10 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.border {
+  border-width: 1px;
+}
+
 .menu {
   background-color: #f0f0f0;
   border: 1px solid #ccc;
@@ -611,7 +615,6 @@ video {
   .item {
     background-color: rgb(220, 201, 230);
     display: inline-block;
-    border: 1px solid black;
   }
 }
 
