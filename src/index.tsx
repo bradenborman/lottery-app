@@ -16,9 +16,9 @@ const App = () => {
     };
 
     return (
-        <div>
+        <>
             {renderLottery()}
-        </div>
+        </>
     );
 };
 

@@ -4,3 +4,10 @@
 
 @import '././startmenu/startMenu.scss';
 @import '././lottery/lottery.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}

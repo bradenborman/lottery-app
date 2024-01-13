@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "esModuleInterop": true,
-    "outDir": "./dist",
+    "outDir": "dist-old",
     "module": "commonjs",
     "target": "es5",
     "jsx": "react"

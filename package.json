@@ -7,7 +7,8 @@
   "scripts": {
     "build:css": "tailwindcss -i ./src/index.scss -o ./src/tailwind.output.css",
     "build": "npm run build:css && webpack --mode production",
-    "start": "electron-forge start",
+    "start": "npm run build && electron .",
+    "start-forge": "electron-forge start",
     "dev": "webpack serve --mode development --open",
     "start-prod": "electron ./dist/main.js",
     "package": "electron-forge package",

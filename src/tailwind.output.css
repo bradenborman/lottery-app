@@ -606,16 +606,18 @@ video {
 
 .lottery {
   text-align: center;
-  margin-top: 20px;
+  padding: 0px;
+  margin: 0px;
   .item {
-    margin: 10px 10px;
     background-color: rgb(220, 201, 230);
     display: inline-block;
-    height: 60px;
-    width: 120px;
-    line-height: 60px;
-    font-size: 2em;
-    border-radius: 10px;
-    box-shadow: 2px 2px purple;
+    border: 1px solid black;
   }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
